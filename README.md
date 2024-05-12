@@ -1,46 +1,42 @@
-### Objective
+# Terraform AWS S3 Hosting Setup
 
-Your assignment is to build a terraform configuration that sets up hosting
-for the provided index.html file.
+Follow the instructions below to build a Terraform configuration that sets up hosting for the provided `index.html` file.
 
-### Brief
+## Prerequisites
 
-The crew on the Millennium Falcon is bored. To bolster morale, one of your team members has developed a simple game in the form of a single-page application. You have offered to help her with the setup of the infrastructure side of things.
+The script is compatible with Debian, Ubuntu, RedHat, CentOS, Fedora, and Amazon Linux. However, this script has only been tested in an Ubuntu environment. If you run into any issues, please reach out to me at [danielnana.asamani@gmail.com](mailto:danielnana.asamani@gmail.com).
 
-Your colleague believes that this app will be immensely popular, but has asked that
-before it is publically available that it can only be accessed by her in order
-to ensure that it meets the required standards.
+**Note:** The scripts assume the user has sudo access. Attempts to use the root user might run into some issues.
 
-### Tasks
+## Setup Instructions
 
--   Implement a terraform configuration to create the required infrastructure on AWS.
--   Use terraform to 'deploy' the index.html ( application ) on the AWS infrastructure.
--   Ensure that the application can only be accessed from: 3.121.56.176
+### Step 1: Set Up AWS CLI
 
-### Deliverables
+**Skip this step if you have AWS CLI setup already.**
 
-Make sure to include all source code in this repository.
+1. Navigate into the `01-AWSCLI-setup` directory.
+2. Run the `01-aws-cli-setup.sh` script. Note that this script requires sudo access.
+3. Open your AWS account and retrieve the user's access ID and secret key. Ensure the user has all required permissions for creating infrastructure and for S3 bucket operations.
+4. Run the `02-aws-configure.sh` script to configure AWS credentials.
 
-Please provide brief documentation as to why you chose a particular stack/setup.
+### Step 2: Setup Terraform
 
-Ensure that your terraform code can be executed and create the infrastructure
-required and 'deploy' the single-page application.
+**Skip this step if Terraform is already set up.**
 
-You may use local state or remote state if you so choose.
+1. Navigate to the `02-Terraform-setup` directory.
+2. Run the `setup-terraform.sh` script for Terraform installation. Note: This script assumes the user has sudo access.
 
-### Evaluation Criteria
+### Step 3: Deploy Application
 
--   Terraform best practices.
--   Choice of infrastructure
--   Completeness: did you complete the features?
--   Correctness: does the functionality act in sensible, thought-out ways?
--   Maintainability: is it written in a clean, maintainable way?
+1. Navigate to the `03-App-Deploy/terraform` directory.
+2. Review the `terraform.tfvars` for the values needed.
+3. Initialize Terraform with the `terraform init` command.
+4. Run `terraform fmt` to fix any format issues.
+5. Run `terraform plan -var-file="terraform.tfvars"` to preview what will be provisioned.
+6. Run `terraform apply -var-file="terraform.tfvars"` to provision the infrastructure.
+7. Copy the provided URL and test the application.
 
-### CodeSubmit
+## Additional Information
 
-Please organize, design, test, and document your code as if it were
-going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+For any additional help or information, please contact [danielnana.asamani@gmail.com](mailto:danielnana.asamani@gmail.com).
 
-All the best and happy coding,
-
-The Polaris IO Team
