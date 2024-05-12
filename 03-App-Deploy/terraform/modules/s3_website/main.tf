@@ -12,6 +12,7 @@ resource "aws_s3_bucket_public_access_block" "website_access_block" {
 }
 
 resource "aws_s3_bucket_policy" "website_policy" {
+    depends_on = [aws_s3_bucket_public_access_block.website_access_block]
     bucket = aws_s3_bucket.website.id
     policy = jsonencode({
         Version = "2012-10-17"
