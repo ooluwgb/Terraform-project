@@ -4,7 +4,7 @@ Follow the instructions below to build a Terraform configuration that sets up ho
 
 ## Prerequisites
 
-The script is compatible with Debian, Ubuntu, RedHat, CentOS, Fedora, and Amazon Linux. However, this script has only been tested in an Ubuntu environment. If you run into any issues, please reach out to me at [danielnana.asamani@gmail.com](mailto:danielnana.asamani@gmail.com).
+The script is compatible with Debian, Ubuntu, RedHat, CentOS, Fedora, and Amazon Linux. However, this script has only been tested in an Ubuntu environment. If you run into any issues, please reach out to me at [danielnana.asamani@gmail.com](mailto:ooluwagbemia@gmail.com).
 
 **Note:** The scripts assume the user has sudo access. Attempts to use the root user might run into some issues.
 
